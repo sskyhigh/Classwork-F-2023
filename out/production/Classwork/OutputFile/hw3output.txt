@@ -1,0 +1,132 @@
+1.)
+Student score: 
+id: 1234 
+12 right 13 wrong
+total answered is: 12
+number omitted is: 25
+grade is: 24
+more wrong than right
+0.48 correct pvc value: 
+10 or more omitted
+
+2.)
+Student score: 
+id: 2332 
+23 right 12 wrong
+total answered is: 23
+number omitted is: 15
+grade is: 46
+more right than wrong
+0.66 correct pvc value: 
+10 or more omitted
+
+3.)
+Student score: 
+id: 8348 
+15 right 18 wrong
+total answered is: 15
+number omitted is: 17
+grade is: 30
+more right than wrong
+0.45 correct pvc value: 
+10 or more omitted
+
+4.)
+Student score: 
+id: 9938 
+16 right 20 wrong
+total answered is: 16
+number omitted is: 14
+grade is: 32
+more right than wrong
+0.44 correct pvc value: 
+10 or more omitted
+
+5.)
+Student score: 
+id: 8237 
+30 right 15 wrong
+total answered is: 30
+number omitted is: 5
+grade is: 60
+more right than wrong
+0.67 correct pvc value: 
+10 or more omitted
+
+6.)
+Student score: 
+id: 3288 
+31 right 16 wrong
+total answered is: 31
+number omitted is: 3
+grade is: 62
+more right than wrong
+0.66 correct pvc value: 
+10 or more omitted
+
+7.)
+Student score: 
+id: 9902 
+45 right 5 wrong
+total answered is: 45
+number omitted is: 0
+grade is: 90
+more right than wrong
+0.90 correct pvc value: 
+10 or more omitted
+
+8.)
+Student score: 
+id: 8832 
+33 right 17 wrong
+total answered is: 33
+number omitted is: 0
+grade is: 66
+more right than wrong
+0.66 correct pvc value: 
+10 or more omitted
+
+9.)
+Student score: 
+id: 3882 
+10 right 15 wrong
+total answered is: 10
+number omitted is: 25
+grade is: 20
+more right than wrong
+0.40 correct pvc value: 
+10 or more omitted
+
+10.)
+Student score: 
+id: 2707 
+19 right 30 wrong
+total answered is: 19
+number omitted is: 1
+grade is: 38
+more right than wrong
+0.39 correct pvc value: 
+10 or more omitted
+
+11.)
+Student score: 
+id: 0200 
+35 right 15 wrong
+total answered is: 35
+number omitted is: 0
+grade is: 70
+more right than wrong
+0.70 correct pvc value: 
+10 or more omitted
+
+12.)
+Student score: 
+id: 9392 
+15 right 20 wrong
+total answered is: 15
+number omitted is: 15
+grade is: 30
+more right than wrong
+0.43 correct pvc value: 
+10 or more omitted
+
