@@ -3,14 +3,11 @@ import java.util.Scanner;
 public class homework6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Symbols: +, -, *, /, or % representing the usual arithmetic operators");
+        System.out.println("Symbols:\n +, -, *, /, or % representing the usual arithmetic operators");
         String response = sc.next();
 
-        System.out.println("");
         int a, b;
-        while (response != "q") {
-            System.out.println("What operation do you want to do? ");
-            response = sc.next();
+        while (!response.equals("q")) {
             if (response.equals("+")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
@@ -20,6 +17,8 @@ public class homework6 {
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
                 System.out.println("sum: " + add);
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             } else if (response.equals("-")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
@@ -29,6 +28,8 @@ public class homework6 {
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
                 System.out.println("sum: " + subtract);
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             } else if (response.equals("*")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
@@ -36,7 +37,9 @@ public class homework6 {
                 int multiplication = multiplication(a, b);
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
-                System.out.println("multiplication is:" + multiplication);
+                System.out.println("multiplication is: " + multiplication);
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             } else if (response.equals("/")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
@@ -46,6 +49,8 @@ public class homework6 {
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
                 System.out.println("Division is: " + divide);
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             } else if (response.equals("%")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
@@ -55,6 +60,8 @@ public class homework6 {
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
                 System.out.println("Mod is: " + mod);
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             } else if (response.equals("A")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
@@ -64,6 +71,8 @@ public class homework6 {
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
                 System.out.println("Average is: " + avg);
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             } else if (response.equals("X")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
@@ -73,6 +82,8 @@ public class homework6 {
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
                 System.out.println("Maximum is: " + max);
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             } else if (response.equals("M")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
@@ -82,10 +93,14 @@ public class homework6 {
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
                 System.out.println("min is: " + min);
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             } else if (response.equals("S")) {
                 System.out.println("Enter a number");
                 a = sc.nextInt();
                 System.out.println("Square is: " + square(a));
+                System.out.println("Which operation do you want to do?");
+                response = sc.next();
             }
         }
     }
