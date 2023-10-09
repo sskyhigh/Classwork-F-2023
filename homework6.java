@@ -14,6 +14,7 @@ public class homework6 {
                 b = sc.nextInt();
                 int add = addition(a, b);
                 System.out.println("Operation: Addition");
+                //
                 System.out.println("augend: " + a);
                 System.out.println("addend: " + b);
                 System.out.println("sum: " + add);
