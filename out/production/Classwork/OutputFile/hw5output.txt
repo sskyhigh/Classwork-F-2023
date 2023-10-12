@@ -1,0 +1,55 @@
+hello
+Numbers read in: 150 123 141
+Group is valid
+Ratings: 
+150 very good game
+123 good game
+141 very good game
+
+average score: 138
+
+OneGameScore Avg: 
+138 good game
+
+Numbers read in: 342 883 100
+Number is too high!
+average score: 441
+
+OneGameScore Avg: 
+Number is higher than 300
+
+Numbers read in: 737 727 331
+Number is too high!
+average score: 598
+
+OneGameScore Avg: 
+Number is higher than 300
+
+Numbers read in: 90 83 177
+Group is valid
+Ratings: 
+90 horrible game
+83 horrible game
+177 very good game
+
+average score: 116
+
+OneGameScore Avg: 
+116 good game
+
+Numbers read in: 123 88 100
+Group is valid
+Ratings: 
+123 good game
+88 horrible game
+100 bad game
+
+average score: 103
+
+OneGameScore Avg: 
+103 good game
+
+
+Number of groups valid: 3
+Number of invalid groups: 2
+Total number of groups processed: 5
