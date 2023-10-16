@@ -60,6 +60,6 @@ public class homework7 {
     }
 
     private static void Withdrawal(int[]acctNum, double[]balance, int numAccts){
-
+        System.out.println("Enter a ");
     }
 }
