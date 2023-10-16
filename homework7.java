@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class homework7 {
     public static String filepath = "readFiles/bankInformation.txt";
     public static Scanner sc;
+    public static int accountNumber;
 
     static {
         try {
@@ -53,13 +54,44 @@ public class homework7 {
         return i;
     }
 
-    private static void print(int [] accounts, double[] balance, int size){
-        for(int i = 0; i<size; ++i){
+    private static void print(int[] accounts, double[] balance, int size) {
+        for (int i = 0; i < size; ++i) {
             System.out.println(accounts[i] + " " + balance[i]);
         }
     }
 
-    private static void Withdrawal(int[]acctNum, double[]balance, int numAccts){
-        System.out.println("Enter a ");
+    private static void Withdrawal(int[] acctNum, double[] balance, int numAccts) {
+        double withdrawAmount, remaining;
+        System.out.println("Enter account number");
+        accountNumber = sc.nextInt();
+        for (int i = 0; i < numAccts; ++i) {
+            if (acctNum[i] != accountNumber) {
+                System.out.println("Account not found");
+            } else {
+                System.out.println("How much do you want to withdrawal?");
+                withdrawAmount = sc.nextDouble();
+                // check if the amount is enough in the balance.
+                if (balance[i] > withdrawAmount) {
+                    System.out.println("Insufficient funds");
+                } else {
+                    balance[i] -= withdrawAmount;
+                }
+            }
+        }
+    }
+
+    private static void deposit(int[] acctNum, double[] balance, int num_Accts) {
+        double depositAmount;
+        System.out.println("Please enter your account number");
+        accountNumber = sc.nextInt();
+        for (int i = 0; i < num_Accts; ++i) {
+            if (acctNum[i] == accountNumber) {
+                System.out.println("please enter the amount you want to deposit");
+                depositAmount = sc.nextDouble();
+                balance[i] += depositAmount;
+            } else {
+                System.out.println("Account not found");
+            }
+        }
     }
 }
