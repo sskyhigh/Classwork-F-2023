@@ -5,19 +5,23 @@ import java.util.Scanner;
 
 public class homework5 {
     public static void main(String[] args) throws FileNotFoundException {
+        //sentinel value holders
         int count = 0, invalidGroups = 0, groupsProcessed = 0;
         PrintWriter writer = new PrintWriter("OutputFile/hw5output.txt");
         // testing to see if the contents have written into the file
-        writer.println("hello");
         Scanner sc = new Scanner((new File("readFiles/bowlingScores.txt")));
         while (sc.hasNextLine()) {
-            writer.print("Numbers read in: "); int firstNumber = sc.nextInt();
-            int secondNumber = sc.nextInt(); int thirdNumber = sc.nextInt();
+            writer.print("Numbers read in: ");
+            int firstNumber = sc.nextInt();
+            int secondNumber = sc.nextInt();
+            int thirdNumber = sc.nextInt();
             writer.println(firstNumber + " " + secondNumber + " " + thirdNumber);
             if (ValidGroup(firstNumber, secondNumber, thirdNumber, writer)) {
                 //repeating the same figures for second and third scores
-                writer.println("Ratings: "); oneGameScore(firstNumber, writer);
-                oneGameScore(secondNumber, writer); oneGameScore(thirdNumber, writer);
+                writer.println("Ratings: ");
+                oneGameScore(firstNumber, writer);
+                oneGameScore(secondNumber, writer);
+                oneGameScore(thirdNumber, writer);
                 writer.println();
                 // sentinel value
                 ++count;
@@ -27,19 +31,24 @@ public class homework5 {
             }
             // just printing out the numbers to check out if
             // I am getting the right figures
+            // average of 3 gets the numbers even if group is invalid.
             int averageOfThreeScores = avg3Scores(firstNumber, secondNumber, thirdNumber);
 
             writer.println("average score: " + averageOfThreeScores + "\n");
-            writer.println("OneGameScore Avg: "); oneGameScore(averageOfThreeScores, writer);
+            writer.println("OneGameScore Avg: ");
+            oneGameScore(averageOfThreeScores, writer);
             writer.println();
-        } writer.println("\nNumber of groups valid: " + count);
+        }
+        writer.println("\nNumber of groups valid: " + count);
         writer.println("Number of invalid groups: " + invalidGroups);
-        writer.println("Total number of groups processed: " + (count + invalidGroups)); sc.close();
+        writer.println("Total number of groups processed: " + (count + invalidGroups));
+        sc.close();
         writer.close();
     }
 
     public static boolean ValidGroup(int score1, int score2, int score3, PrintWriter writer) {
-        boolean check = false; if (score1 < 0) {
+        boolean check = false;
+        if (score1 < 0) {
             writer.println("Number is invalid! less than 0");
         } else if (score1 > 300) {
             writer.println("Number is too high!");
@@ -54,10 +63,12 @@ public class homework5 {
                 } else if (score3 > 300) {
                     writer.println("Number is too high");
                 } else {
-                    check = true; writer.println("Group is valid");
+                    check = true;
+                    writer.println("Group is valid");
                 }
             }
-        } return check;
+        }
+        return check;
     }
 
     public static void oneGameScore(int score, PrintWriter writer) {

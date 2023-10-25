@@ -94,4 +94,18 @@ public class homework7 {
             }
         }
     }
+
+    private static int newAcct(int[] acctNum, double[] balance, int num_Accts) {
+        int[] newList = new int[num_Accts + 1];
+        System.out.println("Enter an account number: ");
+        accountNumber = sc.nextInt();
+        for (int i = 0; i < num_Accts; ++i) {
+            if (acctNum[i] != accountNumber) {
+
+            } else {
+                System.out.println("Account exists");
+            }
+        }
+        return 0;
+    }
 }
