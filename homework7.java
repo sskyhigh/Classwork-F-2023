@@ -30,7 +30,7 @@ public class homework7 {
             case "D":
 //                Deposit();
             case "N":
-//                newACcount();
+//                newAcct();
             case "B":
 //                Balance();
             case "Q":
@@ -52,12 +52,6 @@ public class homework7 {
             ++i;
         }
         return i;
-    }
-
-    private static void print(int[] accounts, double[] balance, int size) {
-        for (int i = 0; i < size; ++i) {
-            System.out.println(accounts[i] + " " + balance[i]);
-        }
     }
 
     private static void Withdrawal(int[] acctNum, double[] balance, int numAccts) {
@@ -94,7 +88,7 @@ public class homework7 {
             }
         }
     }
-
+    // Adds an account
     private static int newAcct(int[] acctNum, double[] balance, int num_Accts) {
         int[] newList = new int[num_Accts + 1];
         System.out.println("Enter an account number: ");
@@ -107,5 +101,26 @@ public class homework7 {
             }
         }
         return 0;
+    }
+
+    public static void balance(int[] acctNum, double[] balance, int numAccts) {
+        System.out.println("Enter your account number: ");
+        accountNumber = sc.nextInt();
+
+        for (int i = 0; i < numAccts; ++i) {
+            if (accountNumber != acctNum[i]) {
+                System.out.println("Account does not exist");
+            } else {
+                System.out.println(balance[i]);
+            }
+        }
+    }
+
+    //prints the account and its balance
+    private static void print(int[] accounts, double[] balance, int size) {
+        System.out.printf("%-30.30s  %-30.30s%n", "Account Number", "Balance");
+        for (int i = 0; i < size; ++i) {
+            System.out.printf("%-30.30s  $%-30.30s%n", accounts[i], balance[i]);
+        }
     }
 }
