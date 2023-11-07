@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class homework7 {
-    public static String filepath = "readFiles/bankInformation.txt";
+    public static String filepath = "readFiles/initAccts.txt";
     public static Scanner sc;
     public static int accountNumber;
 
@@ -16,6 +16,7 @@ public class homework7 {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+        Scanner cs1 = new Scanner(System.in);
         int size = 20;
         int[] acctNum = new int[size];
         double[] balance = new double[size];
@@ -23,14 +24,16 @@ public class homework7 {
         //displays the menu
         menu();
         print(acctNum, balance, sizeArray);
-        //String response = sc.next();
+        System.out.println("Enter a response");
+        String response = "";
+        response = cs1.next();
         switch ("no") {
             case "W":
                 Withdrawal(acctNum, balance, sizeArray);
             case "D":
 //                Deposit();
             case "N":
-//                newAcct();
+                newAcct(acctNum, balance, sizeArray);
             case "B":
 //                Balance();
             case "Q":
@@ -88,6 +91,7 @@ public class homework7 {
             }
         }
     }
+
     // Adds an account
     private static int newAcct(int[] acctNum, double[] balance, int num_Accts) {
         int[] newList = new int[num_Accts + 1];
@@ -95,18 +99,19 @@ public class homework7 {
         accountNumber = sc.nextInt();
         for (int i = 0; i < num_Accts; ++i) {
             if (acctNum[i] != accountNumber) {
-
+                acctNum[num_Accts] = accountNumber;
+                ++num_Accts;
+                balance[num_Accts] = 0;
             } else {
                 System.out.println("Account exists");
             }
         }
-        return 0;
+        return num_Accts;
     }
 
     public static void balance(int[] acctNum, double[] balance, int numAccts) {
         System.out.println("Enter your account number: ");
         accountNumber = sc.nextInt();
-
         for (int i = 0; i < numAccts; ++i) {
             if (accountNumber != acctNum[i]) {
                 System.out.println("Account does not exist");
