@@ -7,7 +7,7 @@ public class homework6 {
     public static void main(String[] args) throws FileNotFoundException {
         int firstFigure = 0, secondFigure = 0, count = 0, a, b;
         String filepath = "readFiles/homework6InputFiles.txt";
-        String output = "OutPutFile";
+        String output = "OutPutFile/hw6_Output.txt";
         Scanner sc = new Scanner(System.in);
         Scanner readFile = new Scanner(new File(filepath));
         PrintWriter writer = new PrintWriter(output);
