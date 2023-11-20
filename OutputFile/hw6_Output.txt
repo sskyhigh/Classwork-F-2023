@@ -1,0 +1,7 @@
+test
+Operation: Addition
+augend: 2
+addend: 3
+sum: 5
+Symbols:
+ +, -, *, /, or %
