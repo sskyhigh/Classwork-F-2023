@@ -27,7 +27,7 @@ public class homework7 {
         System.out.println("Enter a response");
         String response = "";
         response = cs1.next();
-        switch ("no") {
+        switch (response) {
             case "W":
                 Withdrawal(acctNum, balance, sizeArray);
             case "D":
@@ -60,7 +60,8 @@ public class homework7 {
     private static void Withdrawal(int[] acctNum, double[] balance, int numAccts) {
         double withdrawAmount, remaining;
         System.out.println("Enter account number");
-        accountNumber = sc.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        accountNumber = scanner.nextInt();
         for (int i = 0; i < numAccts; ++i) {
             if (acctNum[i] != accountNumber) {
                 System.out.println("Account not found");

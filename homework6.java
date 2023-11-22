@@ -79,8 +79,7 @@ public class homework6 {
                 writer.println("augend: " + a);
                 writer.println("addend: " + b);
                 writer.println("Mod is: " + mod);
-                System.out.println("Which operation do you want to do?");
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
             } else if (response.equals("A")) {
                 System.out.println("Enter two numbers: ");
@@ -91,8 +90,7 @@ public class homework6 {
                 writer.println("augend: " + a);
                 writer.println("addend: " + b);
                 writer.println("Average is: " + avg);
-                System.out.println("Which operation do you want to do?");
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
             } else if (response.equalsIgnoreCase("X")) {
                 System.out.println("Enter two numbers: ");
