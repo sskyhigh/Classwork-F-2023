@@ -1,5 +1,0 @@
-test
-Operation: Average
-augend: 2
-addend: 3
-Average is: 2

@@ -120,8 +120,7 @@ public class homework6 {
                 System.out.println("Enter a number");
                 a = sc.nextInt();
                 writer.println("Square is: " + square(a));
-                System.out.println("Which operation do you want to do?");
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
             } else if (response.equalsIgnoreCase("Q")) {
                 break;
@@ -170,9 +169,9 @@ public class homework6 {
     }
 
     public static void menu() {
-        System.out.println("\"Symbols:\\n +, -, *, /, or % representing the usual arithmetic " +
-                "operators\n" + "A - Representing the average of two users\n " + "X - " +
-                "representation the maximum of two numbers\n" + "M - representing the minimum of " +
-                "two numbers\n" + "S - representation the square of two numbers" + "Q - Quit ");
+        System.out.println("\"Symbols: +, -, *, /, or % representing the usual arithmetic " +
+                "operators\n" + "A - Representing the average of two users\n" + "X - " +
+                "representation the maximum of two numbers\n" + "M - representing the minimum of "
+                + "two numbers\n" + "S - representation the square of two numbers\n" + "Q - Quit ");
     }
 }
