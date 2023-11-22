@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class homework7 {
     public static String filepath = "readFiles/initAccts.txt";
     public static Scanner sc;
+    public static Scanner scanner = new Scanner(System.in);
     public static int accountNumber;
 
     static {
@@ -24,20 +25,21 @@ public class homework7 {
         //displays the menu
         menu();
         print(acctNum, balance, sizeArray);
-        System.out.println("Enter a response");
+        System.out.println("Enter a response:");
         String response = "";
         response = cs1.next();
-        switch (response) {
-            case "W":
+        while (!response.equalsIgnoreCase("Q")) {
+            if (response.equalsIgnoreCase("W")) {
                 Withdrawal(acctNum, balance, sizeArray);
-            case "D":
-//                Deposit();
-            case "N":
+            } else if (response.equalsIgnoreCase("D")) {
+                Deposit(acctNum, balance, sizeArray);
+            } else if (response.equalsIgnoreCase("N")) {
                 newAcct(acctNum, balance, sizeArray);
-            case "B":
-//                Balance();
-            case "Q":
+            } else if (response.equalsIgnoreCase("B")) {
+                Balance(acctNum, balance, sizeArray);
+            } else {
                 break;
+            }
         }
         readAccts(acctNum, balance);
     }
@@ -58,30 +60,34 @@ public class homework7 {
     }
 
     private static void Withdrawal(int[] acctNum, double[] balance, int numAccts) {
+        boolean checkIfAccountExists = false;
         double withdrawAmount, remaining;
-        System.out.println("Enter account number");
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter account number:");
         accountNumber = scanner.nextInt();
         for (int i = 0; i < numAccts; ++i) {
             if (acctNum[i] != accountNumber) {
-                System.out.println("Account not found");
+                checkIfAccountExists = true;
             } else {
                 System.out.println("How much do you want to withdrawal?");
-                withdrawAmount = sc.nextDouble();
+                withdrawAmount = scanner.nextDouble();
                 // check if the amount is enough in the balance.
                 if (balance[i] > withdrawAmount) {
                     System.out.println("Insufficient funds");
                 } else {
                     balance[i] -= withdrawAmount;
+                    System.out.println("New Balance is: " + balance[i]);
                 }
             }
         }
+        if(checkIfAccountExists){
+            System.out.println("Account not found!");
+        }
     }
 
-    private static void deposit(int[] acctNum, double[] balance, int num_Accts) {
+    private static void Deposit(int[] acctNum, double[] balance, int num_Accts) {
         double depositAmount;
         System.out.println("Please enter your account number");
-        accountNumber = sc.nextInt();
+        accountNumber = scanner.nextInt();
         for (int i = 0; i < num_Accts; ++i) {
             if (acctNum[i] == accountNumber) {
                 System.out.println("please enter the amount you want to deposit");
@@ -97,7 +103,7 @@ public class homework7 {
     private static int newAcct(int[] acctNum, double[] balance, int num_Accts) {
         int[] newList = new int[num_Accts + 1];
         System.out.println("Enter an account number: ");
-        accountNumber = sc.nextInt();
+        accountNumber = scanner.nextInt();
         for (int i = 0; i < num_Accts; ++i) {
             if (acctNum[i] != accountNumber) {
                 acctNum[num_Accts] = accountNumber;
@@ -110,9 +116,9 @@ public class homework7 {
         return num_Accts;
     }
 
-    public static void balance(int[] acctNum, double[] balance, int numAccts) {
+    public static void Balance(int[] acctNum, double[] balance, int numAccts) {
         System.out.println("Enter your account number: ");
-        accountNumber = sc.nextInt();
+        accountNumber = scanner.nextInt();
         for (int i = 0; i < numAccts; ++i) {
             if (accountNumber != acctNum[i]) {
                 System.out.println("Account does not exist");

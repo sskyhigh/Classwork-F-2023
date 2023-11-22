@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class homework6 {
     public static void main(String[] args) throws FileNotFoundException {
-        int firstFigure = 0, secondFigure = 0, count = 0, a, b;
+        int firstFigure = 0, secondFigure = 0, count = 0, a = 0, b = 0;
         /*input file*/
         String filepath = "readFiles/homework6InputFiles.txt";
         /*output*/
@@ -30,8 +30,7 @@ public class homework6 {
                 b = sc.nextInt();
                 int add = addition(a, b);
                 writer.println("Operation: Addition");
-                writer.println("augend: " + a);
-                writer.println("addend: " + b);
+                writer.println("augend: " + a + "\naddend:" + b);
                 writer.println("sum: " + add);
                 menu();
                 response = sc.next();
@@ -41,8 +40,7 @@ public class homework6 {
                 b = sc.nextInt();
                 int subtract = subtraction(a, b);
                 writer.println("Operation: Subtraction");
-                writer.println("augend: " + a);
-                writer.println("addend: " + b);
+                writer.println("augend: " + a + "\naddend:" + b);
                 writer.println("sum: " + subtract);
                 menu();
                 response = sc.next();
@@ -63,8 +61,7 @@ public class homework6 {
                 b = sc.nextInt();
                 double divide = division(a, b);
                 writer.println("Operation: division");
-                writer.println("augend: " + a);
-                writer.println("addend: " + b);
+                writer.println("augend: " + a + "\naddend:" + b);
                 writer.println("Division is: " + divide);
                 System.out.println("Which operation do you want to do?");
                 System.out.println();
@@ -76,8 +73,7 @@ public class homework6 {
                 b = sc.nextInt();
                 int mod = mod(a, b);
                 writer.println("Operation: Mod");
-                writer.println("augend: " + a);
-                writer.println("addend: " + b);
+                writer.println("augend: " + a + "\naddend:" + b);
                 writer.println("Mod is: " + mod);
                 menu();
                 response = sc.next();
@@ -87,8 +83,7 @@ public class homework6 {
                 b = sc.nextInt();
                 double avg = average(a, b);
                 writer.println("Operation: Average");
-                writer.println("augend: " + a);
-                writer.println("addend: " + b);
+                writer.println("augend: " + a + "\naddend:" + b);
                 writer.println("Average is: " + avg);
                 menu();
                 response = sc.next();
@@ -98,8 +93,7 @@ public class homework6 {
                 b = sc.nextInt();
                 int max = maximum(a, b);
                 writer.println("Operation: Maximum");
-                writer.println("augend: " + a);
-                writer.println("addend: " + b);
+                writer.println("augend: " + a + "\naddend:" + b);
                 writer.println("Maximum is: " + max);
                 menu();
                 response = sc.next();
@@ -109,8 +103,7 @@ public class homework6 {
                 b = sc.nextInt();
                 int min = minimum(a, b);
                 writer.println("Operation: Minimum");
-                writer.println("augend: " + a);
-                writer.println("addend: " + b);
+                writer.println("augend: " + a + "\naddend:" + b);
                 writer.println("min is: " + min);
                 menu();
                 response = sc.next();
