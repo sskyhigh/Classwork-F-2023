@@ -13,12 +13,11 @@ public class homework6 {
         Scanner sc = new Scanner(System.in);
         Scanner readFile = new Scanner(new File(filepath));
         PrintWriter writer = new PrintWriter(output);
-        System.out.println("Symbols:\n +, -, *, /, or % representing the usual arithmetic operators");
-        System.out.println("Press 'Q' to quit ");
+        menu();
 
         writer.println("test");
         //reads in the variables from files
-        while(readFile.hasNextInt()){
+        while (readFile.hasNextInt()) {
             firstFigure = readFile.nextInt();
             secondFigure = readFile.nextInt();
             //System.out.println(firstFigure + " " + secondFigure);
@@ -34,8 +33,7 @@ public class homework6 {
                 writer.println("augend: " + a);
                 writer.println("addend: " + b);
                 writer.println("sum: " + add);
-                System.out.println("Which operation do you want to do?");
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
             } else if (response.equals("-")) {
                 System.out.println("Enter two numbers: ");
@@ -46,8 +44,7 @@ public class homework6 {
                 writer.println("augend: " + a);
                 writer.println("addend: " + b);
                 writer.println("sum: " + subtract);
-                System.out.println("Which operation do you want to do?");
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
             } else if (response.equals("*")) {
                 System.out.println("Enter two numbers: ");
@@ -70,6 +67,7 @@ public class homework6 {
                 writer.println("addend: " + b);
                 writer.println("Division is: " + divide);
                 System.out.println("Which operation do you want to do?");
+                System.out.println();
                 System.out.println("Symbols:\n +, -, *, /, or %");
                 response = sc.next();
             } else if (response.equals("%")) {
@@ -88,7 +86,7 @@ public class homework6 {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
                 b = sc.nextInt();
-                int avg = average(a, b);
+                double avg = average(a, b);
                 writer.println("Operation: Average");
                 writer.println("augend: " + a);
                 writer.println("addend: " + b);
@@ -96,7 +94,7 @@ public class homework6 {
                 System.out.println("Which operation do you want to do?");
                 System.out.println("Symbols:\n +, -, *, /, or %");
                 response = sc.next();
-            } else if (response.equals("X")) {
+            } else if (response.equalsIgnoreCase("X")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
                 b = sc.nextInt();
@@ -105,10 +103,9 @@ public class homework6 {
                 writer.println("augend: " + a);
                 writer.println("addend: " + b);
                 writer.println("Maximum is: " + max);
-                System.out.println("Which operation do you want to do?");
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
-            } else if (response.equals("M")) {
+            } else if (response.equalsIgnoreCase("M")) {
                 System.out.println("Enter two numbers: ");
                 a = sc.nextInt();
                 b = sc.nextInt();
@@ -117,27 +114,28 @@ public class homework6 {
                 writer.println("augend: " + a);
                 writer.println("addend: " + b);
                 writer.println("min is: " + min);
-                System.out.println("Which operation do you want to do?");
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
-            } else if (response.equals("S")) {
+            } else if (response.equalsIgnoreCase("S")) {
                 System.out.println("Enter a number");
                 a = sc.nextInt();
                 writer.println("Square is: " + square(a));
                 System.out.println("Which operation do you want to do?");
                 System.out.println("Symbols:\n +, -, *, /, or %");
                 response = sc.next();
-            } else if (response.equals("Q")){
+            } else if (response.equalsIgnoreCase("Q")) {
                 break;
             }
         }
         //close the writer, to print results to page
         writer.close();
     }
+
     //sums two numbers
     public static int addition(int a, int b) {
         return a + b;
     }
+
     /*subtracts two numbers*/
     public static int subtraction(int a, int b) {
         return a - b;
@@ -148,11 +146,11 @@ public class homework6 {
     }
 
     public static double division(int a, int b) {
-        return (double)a / b;
+        return (double) a / b;
     }
 
-    public static int average(int a, int b) {
-        return (a / b) / 2;
+    public static double average(int a, int b) {
+        return (a + b) / 2.0;
     }
 
     public static int maximum(int a, int b) {
@@ -169,5 +167,12 @@ public class homework6 {
 
     public static int mod(int a, int b) {
         return a % b;
+    }
+
+    public static void menu() {
+        System.out.println("\"Symbols:\\n +, -, *, /, or % representing the usual arithmetic " +
+                "operators\n" + "A - Representing the average of two users\n " + "X - " +
+                "representation the maximum of two numbers\n" + "M - representing the minimum of " +
+                "two numbers\n" + "S - representation the square of two numbers" + "Q - Quit ");
     }
 }

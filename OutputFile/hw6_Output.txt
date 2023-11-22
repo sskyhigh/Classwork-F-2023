@@ -1,7 +1,5 @@
 test
-Operation: Addition
+Operation: Average
 augend: 2
 addend: 3
-sum: 5
-Symbols:
- +, -, *, /, or %
+Average is: 2.5
