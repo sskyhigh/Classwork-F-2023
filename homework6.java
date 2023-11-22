@@ -52,8 +52,7 @@ public class homework6 {
                 writer.println("augend: " + a);
                 writer.println("addend: " + b);
                 writer.println("multiplication is: " + multiplication);
-                System.out.println("Which operation do you want to do?");
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
             } else if (response.equals("/")) {
                 System.out.println("Enter two numbers: ");
@@ -64,8 +63,7 @@ public class homework6 {
                 writer.println("augend: " + a + "\naddend:" + b);
                 writer.println("Division is: " + divide);
                 System.out.println("Which operation do you want to do?");
-                System.out.println();
-                System.out.println("Symbols:\n +, -, *, /, or %");
+                menu();
                 response = sc.next();
             } else if (response.equals("%")) {
                 System.out.println("Enter two numbers: ");
