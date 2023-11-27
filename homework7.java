@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class homework7 {
@@ -8,52 +9,60 @@ public class homework7 {
     public static Scanner scanner = new Scanner(System.in);
     public static int accountNumber;
     public static String response = "";
+    public static String output = "OutputFile/homework7.txt";
+    public static PrintWriter writer;
 
     static {
         try {
             sc = new Scanner(new File(filepath));
+            writer = new PrintWriter(output);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
     public static void main(String[] args) throws FileNotFoundException {
+        writer.println("Output: ");
         int size = 20;
         int[] acctNum = new int[size];
         double[] balance = new double[size];
         int sizeArray = readAccts(acctNum, balance);
-        //displays the menu
+        //prints the menu - for testing purposes.
         print(acctNum, balance, sizeArray);
-        /*System.out.println("Enter a response:");
+        /*
+        System.out.println("Enter a response:");
         String response = "";
-        response = cs1.next();*/
+        ;*/
         while (true) {
             menu();
             System.out.println("Enter a response:");
             response = scanner.next();
             if (response.equalsIgnoreCase("W")) {
-                Withdrawal(acctNum, balance, sizeArray);
+                Withdrawal(acctNum, balance, sizeArray, writer);
             } else if (response.equalsIgnoreCase("D")) {
-                sizeArray = Deposit(acctNum, balance, sizeArray);
+                sizeArray = Deposit(acctNum, balance, sizeArray, writer);
             } else if (response.equalsIgnoreCase("N")) {
-                sizeArray = newAcct(acctNum, balance, sizeArray);
+                sizeArray = newAcct(acctNum, balance, sizeArray, writer);
             } else if (response.equalsIgnoreCase("B")) {
-                Balance(acctNum, balance, sizeArray);
+                Balance(acctNum, balance, sizeArray, writer);
             } else if (response.equalsIgnoreCase("P")) {
                 print(acctNum, balance, sizeArray);
             } else if (response.equalsIgnoreCase("X")) {
-                sizeArray = deleteAcct(acctNum, balance, sizeArray);
+                sizeArray = deleteAcct(acctNum, balance, sizeArray, writer);
             } else if (response.equalsIgnoreCase("Q")) {
                 break; // exit the loop if the user wants to quit
             }
         }
     }
 
+    // prints out the menu:
     private static void menu() {
         System.out.println("Select one of the following: \n");
-        System.out.println("W-Withdrawal\nD-Deposit\nN-New Account\nB-Balance\nQ-Quit\nX-Delete\nP-print");
+        System.out.println("W-Withdrawal\nD-Deposit\nN-New " + "Account\nB-Balance\nQ-Quit\nX" +
+                "-Delete\nP-print");
     }
 
+    // read the accounts
     private static int readAccts(int[] acctNum, double[] balance) {
         int i = 0;
         while (sc.hasNext()) {
@@ -64,7 +73,9 @@ public class homework7 {
         return i;
     }
 
-    private static void Withdrawal(int[] acctNum, double[] balance, int numAccts) {
+    // withdraws money from account
+    private static void Withdrawal(int[] acctNum, double[] balance, int numAccts,
+                                   PrintWriter writer) {
         boolean checkIfAccountExists = false;
         double withdrawAmount;
         System.out.println("Enter account number:");
@@ -89,8 +100,8 @@ public class homework7 {
         }
     }
 
-
-    private static int Deposit(int[] acctNum, double[] balance, int num_Accts) {
+    // deposits money into account
+    private static int Deposit(int[] acctNum, double[] balance, int num_Accts, PrintWriter writer) {
         double depositAmount;
         boolean accountExists = false;
         System.out.println("Please enter your account number");
@@ -100,22 +111,22 @@ public class homework7 {
                 System.out.println("please enter the amount you want to deposit");
                 depositAmount = scanner.nextDouble();
                 balance[i] += depositAmount;
-                System.out.println("Deposit successful. Updated balance: " + balance[i]); //
                 // print updated balance
+                System.out.println("Deposit successful. Updated balance: " + balance[i]);
                 accountExists = true;
                 break;
             }
         }
         if (!accountExists) {
             System.out.println("Account not found, try again");
-            num_Accts = newAcct(acctNum, balance, num_Accts); // call newAcct method if account
-            // doesn't exist
+            num_Accts = newAcct(acctNum, balance, num_Accts, writer); // call newAcct method if
+            // account not exist
         }
         return num_Accts;
     }
 
     // Adds an account
-    private static int newAcct(int[] acctNum, double[] balance, int num_Accts) {
+    private static int newAcct(int[] acctNum, double[] balance, int num_Accts, PrintWriter writer) {
         System.out.println("Enter an account number: ");
         accountNumber = scanner.nextInt();
         for (int i = 0; i < num_Accts; ++i) {
@@ -129,22 +140,31 @@ public class homework7 {
         balance[num_Accts] = 0;
         num_Accts++;
         System.out.println("Account added!");
+        writer.println("Account Added");
         return num_Accts;
     }
 
-    public static void Balance(int[] acctNum, double[] balance, int numAccts) {
+    //checks balance
+    public static void Balance(int[] acctNum, double[] balance, int numAccts, PrintWriter writer) {
+        boolean check = false;
         System.out.println("Enter your account number: ");
         accountNumber = scanner.nextInt();
         for (int i = 0; i < numAccts; ++i) {
             if (accountNumber != acctNum[i]) {
+                check = false;
                 System.out.println("Account does not exist");
             } else {
-                System.out.println(balance[i]);
+                check = true;
             }
+        }
+        if (check) {
+            System.out.println(balance);
         }
     }
 
-    private static int deleteAcct(int[] acctNum, double[] balance, int num_Accts) {
+    // deletes an account
+    private static int deleteAcct(int[] acctNum, double[] balance, int num_Accts,
+                                  PrintWriter writer) {
         System.out.println("Enter the account number you want to delete: ");
         int accountNumber = scanner.nextInt();
         int index = -1;
@@ -162,6 +182,7 @@ public class homework7 {
             }
             num_Accts--;
             System.out.println("Account deleted successfully!");
+            writer.println("Account deleted successfully!");
         } else {
             System.out.println("Account not found!");
         }
