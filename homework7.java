@@ -51,8 +51,13 @@ public class homework7 {
                 sizeArray = deleteAcct(acctNum, balance, sizeArray, writer);
             } else if (response.equalsIgnoreCase("Q")) {
                 break; // exit the loop if the user wants to quit
+            } else {
+                System.out.println("Invalid option! Try again or press 'Q' to quit\n");
             }
         }
+        sc.close();
+        scanner.close();
+        writer.close();
     }
 
     // prints out the menu:
@@ -83,6 +88,9 @@ public class homework7 {
         for (int i = 0; i < numAccts; ++i) {
             if (acctNum[i] == accountNumber) {
                 checkIfAccountExists = true;
+                writer.println("Transaction type: Withdraw");
+                writer.println("Account number: " + acctNum[i]);
+                writer.println("Current Balance: " + balance[i]);
                 System.out.println("How much do you want to withdrawal?");
                 withdrawAmount = scanner.nextDouble();
                 // check if the amount is enough in the balance.
@@ -91,6 +99,9 @@ public class homework7 {
                 } else {
                     balance[i] -= withdrawAmount;
                     System.out.println("New Balance is: " + balance[i]);
+                    writer.println("Amount to withdraw: " + withdrawAmount);
+                    writer.println("New Balance: " + balance[i]);
+                    writer.println();
                 }
                 break; // exit the loop once the account is found
             }
@@ -109,18 +120,22 @@ public class homework7 {
         for (int i = 0; i < num_Accts; ++i) {
             if (acctNum[i] == accountNumber) {
                 System.out.println("please enter the amount you want to deposit");
+                writer.println("Transaction type: Deposit");
+                writer.println("Current Balance: " + balance[i]);
+                writer.println("Account number: " + acctNum[i]);
                 depositAmount = scanner.nextDouble();
                 balance[i] += depositAmount;
                 // print updated balance
                 System.out.println("Deposit successful. Updated balance: " + balance[i]);
+                writer.println("Amount to withdraw: " + depositAmount);
+                writer.println("New Balance: " + balance[i]);
+                writer.println();
                 accountExists = true;
                 break;
             }
         }
         if (!accountExists) {
             System.out.println("Account not found, try again");
-            num_Accts = newAcct(acctNum, balance, num_Accts, writer); // call newAcct method if
-            // account not exist
         }
         return num_Accts;
     }
