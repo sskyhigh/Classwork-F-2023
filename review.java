@@ -1,9 +1,10 @@
 public class review {
     public static void main(String[] args) {
-        for(int i = 1; i<=3; ++i){
-            for(int j = 1; j <=2; ++j){
-                System.out.println(i*j);
-            }
-        }
+        String s = "Computer and Information Science";
+        int j = s.indexOf('o');
+        int k = s.indexOf('o', j+1);
+        s = s.substring(j, k);
+        //s = s+s.charAt(2);
+        System.out.println(s);
     }
 }

@@ -1,9 +1,0 @@
-Output: 
-Transaction type: Deposit
-Account number: 74237
-Amount to withdraw: 100.0
-New Balance: 200.0
-Transaction type: Deposit
-Account number: 23427
-Amount to withdraw: 200.0
-New Balance: 422.0
