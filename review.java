@@ -4,7 +4,7 @@ public class review {
         int j = s.indexOf('o');
         int k = s.indexOf('o', j+1);
         s = s.substring(j, k);
-        //s = s+s.charAt(2);
+        s = s+s.charAt(2);
         System.out.println(s);
     }
 }
