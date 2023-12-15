@@ -18,7 +18,7 @@ public class homework8 {
             listOfStrings.add(str);
         }
 
-        // converting this to an array.
+        // converting the list to an array.
         String[] words = listOfStrings.toArray(new String[0]);
         HashMap<String, Integer> map = new HashMap<String, Integer>();
         countDuplicateWords(words, map, writer);
