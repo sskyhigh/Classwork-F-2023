@@ -1,0 +1,8 @@
+ate: 1
+homework: 2
+and: 1
+now: 1
+is: 1
+my: 2
+dog: 3
+gone: 1
